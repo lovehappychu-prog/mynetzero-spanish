@@ -153,12 +153,15 @@ st.markdown(
     'GNPA'
     '</div>'
     '<div style="font-size:14px; font-weight:600; color:#123047; '
-    'letter-spacing:1.6px; text-transform:uppercase; margin-bottom:34px;">'
-    'Global Nature & Plant-based Transición alimentaria Agency'
+    'letter-spacing:1.6px; text-transform:uppercase; margin-bottom:5px;">'
+    'Global Nature & Plant-based Diet Shift Agency'
+    '</div>'
+    '<div style="font-size:13px; font-weight:500; color:#68757D; '
+    'letter-spacing:0.5px; margin-bottom:34px;">'
+    'Agencia Global para la Naturaleza y la Transición hacia una Alimentación Vegetal'
     '</div>',
     unsafe_allow_html=True
 )
-
 # =========================
 # ACERCA DE GNPA
 # =========================
