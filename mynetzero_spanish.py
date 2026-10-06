@@ -154,11 +154,7 @@ st.markdown(
     '</div>'
     '<div style="font-size:14px; font-weight:600; color:#123047; '
     'letter-spacing:1.6px; text-transform:uppercase; margin-bottom:34px;">'
-    'Global Nature & Plant-based Diet Shift Agency'
-    '</div>'
-    '<div style="font-size:13px; font-weight:500; color:#68757D; '
-    'letter-spacing:0.5px; margin-top:-28px; margin-bottom:34px;">'
-    'Agencia Global para la Naturaleza y la Transición hacia una Alimentación Vegetal'
+    'Global Nature & Plant-based Transición alimentaria Agency'
     '</div>',
     unsafe_allow_html=True
 )
@@ -170,17 +166,19 @@ st.markdown(
 with st.expander("ACERCA DE GNPA"):
     st.markdown(
         """
-**Global Nature & Plant-based Diet Shift Agency (GNPA)**
+**Global Nature & Plant-based Transición alimentaria Agency (GNPA)**  
+**Agencia Global para la Naturaleza y la Transición hacia una Alimentación Vegetal**
 
 GNPA es una iniciativa centrada en la investigación que explora la relación entre
-los sistemas alimentarios, la restauración de la naturaleza, el cambio climático y la trayectoria hacia el Net Zero.
+los sistemas alimentarios, la restauración de la naturaleza, el cambio climático
+y la trayectoria hacia el Net Zero.
 
-**MY NET ZERO** traduce esta investigación en una plataforma interactiva,
-permitiendo que individuos, países y audiencias globales exploren cómo los cambios
-alimentarios y la restauración de la naturaleza pueden influir en los resultados climáticos.
+**MY NET ZERO** transforma esta investigación en una plataforma interactiva,
+permitiendo que individuos, países y públicos de todo el mundo exploren cómo
+la transición alimentaria y la restauración de la naturaleza pueden influir en los resultados climáticos.
 
-La plataforma está diseñada para conectar la investigación científica con la comprensión
-pública y el debate sobre políticas.
+La plataforma está diseñada para conectar la investigación científica con la
+comprensión pública y el debate sobre políticas.
         """
     )
 
@@ -195,7 +193,7 @@ with st.expander("CONTACTO / HACER UNA PREGUNTA"):
         contact_name = st.text_input("Nombre")
         contact_organization = st.text_input("Organización")
         contact_country = st.text_input("País")
-        contact_email = st.text_input("Email")
+        contact_email = st.text_input("Correo electrónico")
         contact_message = st.text_area("Pregunta / Mensaje")
 
         contact_submit = st.form_submit_button("ENVIAR")
@@ -204,7 +202,7 @@ with st.expander("CONTACTO / HACER UNA PREGUNTA"):
 
         if not contact_name or not contact_email or not contact_message:
             st.warning(
-                "Por favor, complete su nombre, correo electrónico y pregunta/mensaje."
+                "Complete su nombre, correo electrónico y pregunta/mensaje."
             )
 
         else:
@@ -229,12 +227,12 @@ with st.expander("CONTACTO / HACER UNA PREGUNTA"):
                     )
                 else:
                     st.error(
-                        "No se pudo enviar su mensaje. Por favor, inténtelo de nuevo."
+                        "No se pudo enviar su mensaje. Inténtelo de nuevo."
                     )
 
             except requests.RequestException:
                 st.error(
-                    "No se pudo enviar su mensaje. Por favor, inténtelo de nuevo."
+                    "No se pudo enviar su mensaje. Inténtelo de nuevo."
                 )
 
     st.caption(
@@ -376,9 +374,9 @@ if st.session_state.show_beyond:
     st.markdown(
         '<div style="font-size:21px; line-height:1.8; color:#123047; '
         'max-width:850px; margin-bottom:50px;">'
-        'Cambiar un sistema insostenible no significa renunciar al futuro.<br>'
-        'Se trata de abrir la puerta a un futuro más abundante, más avanzado '
-        'y más emocionante de lo que imaginábamos.'
+        'Changing an unsustainable system is not about giving up the future.<br>'
+        'It is about unlocking a future more abundant, more advanced, '
+        'and more exciting than we imagined.'
         '</div>',
         unsafe_allow_html=True
     )
@@ -411,14 +409,14 @@ if st.session_state.show_for_me:
 
     st.markdown(
         '<div style="color:#2F765D; font-size:15px; font-weight:700; '
-        'letter-spacing:2px; margin-top:25px;">ÍNDICE MY NET ZERO</div>',
+        'letter-spacing:2px; margin-top:25px;">MY NET ZERO INDEX</div>',
         unsafe_allow_html=True
     )
 
     if "diet_choice" not in st.session_state:
-        st.session_state.diet_choice = "ANIMAL-BASED"
+        st.session_state.diet_choice = "DE ORIGEN ANIMAL"
 
-    if st.session_state.diet_choice == "PLANT-BASED":
+    if st.session_state.diet_choice == "VEGETAL":
         my_net_zero_index = -6
     else:
         my_net_zero_index = 10
@@ -429,7 +427,18 @@ if st.session_state.show_for_me:
         unsafe_allow_html=True
     )
     
-
+    st.markdown(
+        '<div style="font-size:14px; line-height:1.6; color:#68757D; '
+        'max-width:760px; margin-top:-15px; margin-bottom:25px;">'
+        '<b>ACERCA DE ESTE ÍNDICE</b><br>'
+        'MY NET ZERO INDEX is a standardized research indicator based on an '
+        '<b>Earth-system accounting framework</b>. Unlike conventional carbon-footprint '
+        'approaches that focus primarily on anthropogenic emissions, this model also '
+        'accounts for the loss and recovery of natural CO₂-removal capacity across '
+        'forests, land and oceans.'
+        '</div>',
+        unsafe_allow_html=True
+    )
     personal1, personal2 = st.columns(2)
 
     with personal1:
@@ -472,25 +481,56 @@ if st.session_state.show_for_me:
         unsafe_allow_html=True
     )
 
+    with st.expander("¿CÓMO SE CALCULA EL ÍNDICE?"):
+        st.markdown(
+            """
+El **MY NET ZERO INDEX** es un indicador de investigación estandarizado.  
+No es una calculadora convencional de huella de carbono personal.
+
+**VIDA COTIDIANA = 2**  
+La energía, el transporte, la cocina y los electrodomésticos representan aproximadamente el **20 %**
+de la carga climática estandarizada en este modelo de investigación.
+
+**ALIMENTACIÓN Y NATURALEZA = 8**  
+El **80 %** restante representa la atribución del modelo de investigación de la carga climática
+relacionada con la ganadería, incluido el uso de energía del sistema alimentario,
+la presión sobre la tierra y la pérdida de capacidad natural de remoción de CO₂.
+
+**DIETA DE ORIGEN ANIMAL**
+
+**2 + 8 = 10**
+
+Por lo tanto, la línea base de dieta de origen animal produce un MY NET ZERO INDEX de **10**.
+
+**DIETA VEGETAL**
+
+**2 − 8 = −6**
+
+En el modelo, la transición alimentaria reduce la presión relacionada con la ganadería
+y permite la recuperación de los sumideros naturales de carbono. El valor negativo representa
+la contribución de la remoción natural de CO₂ restaurada al equilibrio del sistema Tierra,
+no una afirmación de que una persona produzca directamente emisiones negativas.
+            """
+        )
     st.markdown(
         '<div style="color:#2F765D; font-size:15px; font-weight:700; '
-        'letter-spacing:2px;">SU ALIMENTACIÓN</div>',
+        'letter-spacing:2px;">SU DIETA</div>',
         unsafe_allow_html=True
     )
 
     diet1, diet2 = st.columns(2)
 
     if "diet_choice" not in st.session_state:
-        st.session_state.diet_choice = "ANIMAL-BASED"
+        st.session_state.diet_choice = "DE ORIGEN ANIMAL"
 
     with diet1:
         plant_based = st.button(
-            "DE ORIGEN VEGETAL",
+            "VEGETAL",
             use_container_width=True
         )
 
         if plant_based:
-            st.session_state.diet_choice = "PLANT-BASED"
+            st.session_state.diet_choice = "VEGETAL"
             st.rerun()
 
     with diet2:
@@ -500,11 +540,11 @@ if st.session_state.show_for_me:
         )
 
         if animal_based:
-            st.session_state.diet_choice = "ANIMAL-BASED"
+            st.session_state.diet_choice = "DE ORIGEN ANIMAL"
             st.rerun()
 
   
-    if st.session_state.diet_choice == "PLANT-BASED":
+    if st.session_state.diet_choice == "VEGETAL":
 
         st.markdown(
             '<div style="height:35px;"></div>',
@@ -537,7 +577,7 @@ if st.session_state.show_for_me:
 
         with change2:
             st.markdown(
-                '<div class="number-title">TIERRAS LIBERADAS</div>',
+                '<div class="number-title">TIERRA LIBERADA</div>',
                 unsafe_allow_html=True
             )
             st.markdown(
@@ -546,7 +586,7 @@ if st.session_state.show_for_me:
                 unsafe_allow_html=True
             )
             st.markdown(
-                '<div class="small-number">de las tierras agrícolas mundiales</div>',
+                '<div class="small-number">de la tierra agrícola mundial</div>',
                 unsafe_allow_html=True
             )
 
@@ -561,7 +601,7 @@ if st.session_state.show_for_me:
                 unsafe_allow_html=True
             )
             st.markdown(
-                '<div class="small-number">de la deforestación tropical vinculada a la producción de carne de vacuno</div>',
+                '<div class="small-number">de la deforestación tropical vinculada a la producción de carne de res</div>',
                 unsafe_allow_html=True
             )
 
@@ -774,8 +814,8 @@ if st.session_state.show_nation:
     with basis1:
         st.markdown(
             '<div style="border:1px solid #D9DEDB; border-radius:8px; padding:20px 24px; min-height:250px;">'
-            '<div style="color:#123047; font-size:15px; font-weight:700; letter-spacing:1.5px; margin-bottom:18px;">IMPACTO DE CO₂ — BASE DE CÁLCULO</div>'
-            '<div style="color:#68757D; font-size:15px; line-height:2;">Emisiones de metano<br>Tierras de pastoreo<br>Deforestación<br>Uso de energía<br>Combustibles fósiles</div>'
+            '<div style="color:#123047; font-size:15px; font-weight:700; letter-spacing:1.5px; margin-bottom:18px;">CO₂ IMPACT — BASE DE CÁLCULO</div>'
+            '<div style="color:#68757D; font-size:15px; line-height:2;">Methane emissions<br>Grazing land<br>Deforestation<br>Energy use<br>Fossil fuels</div>'
             '</div>',
             unsafe_allow_html=True
         )
@@ -783,15 +823,15 @@ if st.session_state.show_nation:
     with basis2:
         st.markdown(
             '<div style="border:1px solid #D9DEDB; border-radius:8px; padding:20px 24px; min-height:250px;">'
-            '<div style="color:#123047; font-size:15px; font-weight:700; letter-spacing:1.5px; margin-bottom:18px;">IMPACTO EN EL PIB — BASE DE CÁLCULO</div>'
-            '<div style="color:#68757D; font-size:15px; line-height:2;">Emisiones de metano<br>Agua<br>Erosión del suelo<br>Deforestación<br>Cultivos forrajeros</div>'
+            '<div style="color:#123047; font-size:15px; font-weight:700; letter-spacing:1.5px; margin-bottom:18px;">GDP IMPACT — BASE DE CÁLCULO</div>'
+            '<div style="color:#68757D; font-size:15px; line-height:2;">Methane emissions<br>Water<br>Soil erosion<br>Deforestation<br>Feed crops</div>'
             '</div>',
             unsafe_allow_html=True
         )
 
     st.markdown(
         '<div style="color:#68757D; font-size:13px; margin-top:12px;">'
-        'Los resultados se calculan mediante el modelo de investigación MY NET ZERO.'
+        'Los resultados se calculan utilizando el modelo de investigación MY NET ZERO.'
         '</div>',
         unsafe_allow_html=True
     )
@@ -830,6 +870,18 @@ st.markdown(
 # =========================
 # NET ZERO FORMULAS
 # =========================
+
+st.markdown(
+    """
+### DOS FORMAS DE CONTABILIZAR EL NET ZERO
+
+El **Net Zero convencional** pregunta principalmente cuántas emisiones antropogénicas deben reducirse o removerse para equilibrar las emisiones causadas por los seres humanos.
+
+**MY NET ZERO** amplía el límite de contabilidad al sistema Tierra: también pregunta cuánta capacidad natural de remoción de CO₂ puede restaurarse cuando disminuye la presión sobre los bosques, la tierra y los océanos.
+
+La diferencia no es simplemente otra estimación de emisiones: es un **límite de contabilidad diferente**.
+    """
+)
 col1, col2 = st.columns(2)
 
 with col1:
@@ -852,7 +904,7 @@ with col2:
 
     st.markdown(
         '<div class="small-title">'
-        'Brecha real hacia el Net Zero'
+        'Brecha real de Net Zero'
         '</div>',
         unsafe_allow_html=True
     )
@@ -894,30 +946,30 @@ with st.expander("¿POR QUÉ?"):
 
     st.image(
         "net_zero_gap.png.png",
-        caption="Figura 1.1. Medición de la distancia desde el presente hasta el éxito climático.",
+        caption="Figure 1.1. Measurement of the distance from the present to climate success.",
         use_container_width=True
     )
 
     st.markdown("""
-### LA BRECHA HACIA EL NET ZERO
+### THE NET ZERO GAP
 
-**Brecha de CO₂ atmosférico**
+**Atmospheric CO₂ gap**
 
 426 ppm − 350 ppm ≈ **76 ppm**
 
-**Equivalente de CO₂**
+**CO₂ equivalent**
 
 76 ppm × 7.81 GtCO₂/ppm ≈ **593 GtCO₂**
 
-**Años equivalentes de emisiones globales**
+**Equivalent years of global emissions**
 
 593 GtCO₂ ÷ 50 GtCO₂/year ≈ **11.87 years**
 
-**Modelo MY NET ZERO**
+**MY NET ZERO model**
 
 1 − (0.25 − 11.87) ≈ **12.62**
 
-*Base de conversión: Poljak (2023), donde cada ppm de CO₂ atmosférico ≈ 7,81 GtCO₂.*
+*Conversion basis: Poljak (2023), where each atmospheric CO₂ ppm ≈ 7.81 GtCO₂.*
 """)
 
 st.markdown(
@@ -956,7 +1008,7 @@ TARGET_PPM = 350.0
 
 co2_reduced = MAX_CO2 * diet_shift / 100
 
-co2_remaining = MAX_CO2 - co2_reduced
+co2_restantes = MAX_CO2 - co2_reduced
 
 current_ppm = (
     START_PPM
@@ -968,7 +1020,7 @@ ppm_reduced = START_PPM - current_ppm
 
 
 # =========================
-# RESULTS
+# RESULTADOS
 # =========================
 col3, col4 = st.columns(2)
 
@@ -990,7 +1042,7 @@ with col3:
 
     st.markdown(
         f'<div class="small-number">'
-        f'{co2_remaining:.1f} GtCO₂ restantes'
+        f'{co2_restantes:.1f} GtCO₂ restantes'
         f'</div>',
         unsafe_allow_html=True
     )
@@ -1061,7 +1113,7 @@ with chart1:
     fig1.add_trace(
         go.Scatter(
             x=[diet_shift],
-            y=[co2_remaining],
+            y=[co2_restantes],
             mode="markers",
             marker=dict(
                 size=13,
@@ -1164,16 +1216,16 @@ impact1, impact2, impact3 = st.columns(3)
 
 with impact1:
     st.markdown(
-        '<div class="number-title">TIERRAS LIBERADAS</div>',
+        '<div class="number-title">TIERRA LIBERADA</div>',
         unsafe_allow_html=True
     )
     st.markdown(
         '<div style="font-size:32px; font-weight:700; color:#123047; '
-        'margin-top:12px; white-space:nowrap;">37 millones de km²</div>',
+        'margin-top:12px; white-space:nowrap;">37 million km²</div>',
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="small-number">78 % de las tierras agrícolas mundiales</div>',
+        '<div class="small-number">78% de la tierra agrícola mundial</div>',
         unsafe_allow_html=True
     )
 
@@ -1194,7 +1246,7 @@ with impact2:
 
 with impact3:
     st.markdown(
-        '<div class="number-title">REDUCCIÓN DE COSTOS ECONÓMICOS</div>',
+        '<div class="number-title">REDUCCIÓN DEL COSTO ECONÓMICO</div>',
         unsafe_allow_html=True
     )
     st.markdown(
@@ -1238,26 +1290,55 @@ with st.expander(
 
     st.markdown(
         """
-**CAPÍTULO 3 — DATOS Y METODOLOGÍA**  
-Marco de investigación · Datos · Variables · Ecuaciones · Modelo de restauración de la naturaleza
+**CHAPTER 3 — DATA AND METHODOLOGY**  
+Research framework · Data · Variables · Equations · Nature Restoration Model
 
-**CAPÍTULO 4 — EMISIONES Y ABSORCIÓN NATURAL DE CO₂**  
-Validez del modelo · Pronósticos · Análisis de sensibilidad · Escenarios climáticos
+**CHAPTER 4 — EMISSIONS AND NATURE'S CO₂ ABSORPTION**  
+Model validity · Forecasting · Sensitivity analysis · Climate scenarios
 
-**CAPÍTULO 5 — COSTOS EXTERNOS DE LOS COMBUSTIBLES FÓSILES Y LA GANADERÍA**  
-Externalidades de la ganadería · Energía · Costos económicos
+**CHAPTER 5 — EXTERNAL COSTS OF FOSSIL FUELS AND LIVESTOCK**  
+Livestock externalities · Energy · Economic costs
 
-**CAPÍTULO 6 — RESPONSABILIDAD DE CO₂ DE LOS COMBUSTIBLES FÓSILES Y LA GANADERÍA**  
-Emisiones · Pérdida de eliminación de CO₂ · Consumo de energía · Análisis de sensibilidad de tierras y bosques · Responsabilidad ajustada
+**CHAPTER 6 — CO₂ RESPONSIBILITY OF FOSSIL FUELS AND LIVESTOCK**  
+Emissions · CO₂ removal loss · Energy consumption · Land and forest sensitivity analysis · Adjusted responsibility
 
-**CAPÍTULO 7 — APLICACIÓN Y MODELO DE RESTAURACIÓN DE LA NATURALEZA**  
-EE. UU. · China · Política climática mundial · Restauración de la naturaleza
+**CHAPTER 7 — APPLICATION AND NATURE RESTORATION MODEL**  
+U.S. · China · Global climate policy · Nature restoration
         """
     )
 
     st.caption(
         "Detailed methodology, calculations, sensitivity analyses and "
         "underlying data are documented in the full research."
+    )
+
+# =========================
+# RESEARCH BRIEF
+# =========================
+
+st.markdown(
+    """
+### INFORME DE INVESTIGACIÓN
+
+**Contabilidad del sistema Tierra para el Net Zero**
+
+Un resumen de una página del marco de investigación MY NET ZERO, que incluye el límite de contabilidad, la atribución de la carga climática y la vía desde la transición alimentaria hasta la recuperación de la capacidad natural de remoción de CO₂.
+    """
+)
+
+with st.expander("VER INFORME DE INVESTIGACIÓN"):
+    st.image(
+        "research_brief.png",
+        use_container_width=True
+    )
+
+with open("Net_Zero_Research_Summary_QR_FIXED.pdf", "rb") as pdf_file:
+    st.download_button(
+        label="DESCARGAR INFORME DE INVESTIGACIÓN (PDF)",
+        data=pdf_file,
+        file_name="MY_NET_ZERO_Research_Brief.pdf",
+        mime="application/pdf",
+        use_container_width=True
     )
 
 
@@ -1272,18 +1353,18 @@ EE. UU. · China · Política climática mundial · Restauración de la naturale
 
     st.markdown(
         """
-**ENERGÍA — 41 %**
+**ENERGÍA — 41%**
 
 **DATOS FUENTE**  
-Consumo mundial de carne por tipo · Requisitos energéticos por tipo de carne · Población mundial · Consumo mundial de electricidad
+Global meat consumption by meat type · Energy requirements by meat type · Global population · Global electricity consumption
 
 **CÁLCULO MY NET ZERO**  
-Consumo de carne × requisito energético por tipo de carne × población mundial  
-→ consumo mundial estimado de electricidad de la industria cárnica  
-→ comparado con el consumo mundial total de electricidad
+Meat consumption × energy requirement by meat type × global population  
+→ estimated global meat-industry electricity consumption  
+→ compared with total global electricity consumption
 
 **RESULTADO**  
-Consumo estimado de electricidad de la industria cárnica = **41 % del consumo mundial de electricidad**
+Estimated meat-industry electricity consumption = **41% of global electricity consumption**
         """
     )
 
@@ -1294,21 +1375,21 @@ Consumo estimado de electricidad de la industria cárnica = **41 % del consumo m
 
     st.markdown(
         """
-**METANO — 31 %**
+**METANO — 31%**
 
 **DATOS FUENTE**  
-Población bovina · Emisiones anuales de metano por vaca
+Cattle population · Annual methane emissions per cow
 
-**SUPUESTO DEL MODELO MY NET ZERO**  
-Metano = **100× equivalente de CO₂** para representar su fuerte impacto de calentamiento a corto plazo
+**MY NET ZERO MODEL ASSUMPTION**  
+Methane = **100× CO₂-equivalent** to represent its strong near-term warming impact
 
 **CÁLCULO MY NET ZERO**  
-Población bovina × emisiones de metano por vaca × 100 equivalente de CO₂  
-→ aproximadamente **15,2 GtCO₂-equivalente**
+Cattle population × methane emissions per cow × 100 CO₂-equivalent  
+→ approximately **15.2 GtCO₂-equivalent**
 
 **RESULTADO**  
-15,2 GtCO₂-eq. ÷ 50 GtCO₂-eq. de emisiones globales anuales  
-→ **≈ 31 %**
+15.2 GtCO₂-eq. ÷ 50 GtCO₂-eq. global annual emissions  
+→ **≈ 31%**
         """
     )
 
@@ -1319,40 +1400,40 @@ Población bovina × emisiones de metano por vaca × 100 equivalente de CO₂
  
     st.markdown(
         """
-**TIERRA — 11 %**
+**TIERRA — 11%**
 
 **DATOS FUENTE**  
-Uso de tierras para la ganadería = **37 millones de km²**
+Livestock land use = **37 million km²**
 
 **CÁLCULO MY NET ZERO**  
-37 millones de km² × capacidad estimada de absorción de CO₂ de las tierras liberadas  
-→ aproximadamente **5,17 GtCO₂ por año**
+37 million km² × estimated CO₂ absorption capacity of released land  
+→ approximately **5.17 GtCO₂ per year**
 
 **RESULTADO**  
-5,17 GtCO₂ ÷ 50 GtCO₂ de emisiones globales anuales  
-→ **≈ 11 %**
+5.17 GtCO₂ ÷ 50 GtCO₂ global annual emissions  
+→ **≈ 11%**
         """
     )
 
     st.caption(
-        "The 37 millones de km² livestock land-use estimate is source data. "
+        "The 37 million km² livestock land-use estimate is source data. "
         "The 11% indicator is derived by the MY NET ZERO research model."
     )
 
     st.markdown(
         """
-**BOSQUE — 91 %**
+**BOSQUE — 91%**
 
 **LÍMITE DEL MODELO**  
-Estimación conservadora que utiliza el ganado de **países amazónicos y un país de la cuenca del Congo**, en lugar de la población bovina mundial
+Conservative estimate using cattle in **Amazon nations and one Congo Basin country**, rather than global cattle populations
 
 **CÁLCULO MY NET ZERO**  
-Población bovina en las regiones de bosque tropical seleccionadas × impacto sobre la superficie forestal × capacidad estimada de absorción de CO₂ del bosque tropical  
-→ aproximadamente **45,34 GtCO₂ por año**
+Cattle population in the selected tropical-forest regions × forest area impact × estimated tropical-forest CO₂ absorption capacity  
+→ approximately **45.34 GtCO₂ per year**
 
 **RESULTADO**  
-45,34 GtCO₂ ÷ 50 GtCO₂ de emisiones globales anuales  
-→ **≈ 91 %**
+45.34 GtCO₂ ÷ 50 GtCO₂ global annual emissions  
+→ **≈ 91%**
         """
     )
 
@@ -1364,18 +1445,18 @@ Población bovina en las regiones de bosque tropical seleccionadas × impacto so
 
     st.markdown(
         """
-**RESPONSABILIDAD TOTAL DE CO₂ DE LA GANADERÍA — 166 %**
+**RESPONSABILIDAD TOTAL DE CO₂ DE LA GANADERÍA — 166%**
 
-**REASIGNACIÓN DE ENERGÍA**  
-Uso energético de la industria cárnica = **41 %** de la electricidad mundial  
-Aplicado a la **línea base del 78 % de combustibles fósiles**  
-→ 78 % × 41 % ≈ **32 %**
+**REATRIBUCIÓN DE ENERGÍA**  
+Meat-industry energy use = **41%** of global electricity  
+Applied to the **78% fossil-fuel baseline**  
+→ 78% × 41% ≈ **32%**
 
 **CÁLCULO INTEGRADO MY NET ZERO**  
-Metano **31 %** + Tierra **11 %** + Bosque **91 %** + Energía **32 %**
+Methane **31%** + Land **11%** + Forest **91%** + Energy **32%**
 
 **RESULTADO**  
-31 % + 11 % + 91 % + 32 % ≈ **166 %**
+31% + 11% + 91% + 32% ≈ **166%**
         """
     )
 
@@ -1388,7 +1469,7 @@ Metano **31 %** + Tierra **11 %** + Bosque **91 %** + Energía **32 %**
     st.markdown(
         '<div style="font-size:22px; font-weight:700; color:#123047; '
         'margin-top:40px; margin-bottom:15px;">'
-        'SOURCES'
+        'FUENTES'
         '</div>',
         unsafe_allow_html=True
     )
@@ -1398,16 +1479,16 @@ Metano **31 %** + Tierra **11 %** + Bosque **91 %** + Energía **32 %**
 **FUENTES DE DATOS PRINCIPALES**
 
 **FAO / UNFAO**  
-Datos sobre ganadería, consumo de alimentos y uso de tierras agrícolas
+Livestock, food consumption and agricultural land-use data
 
 **Energypedia**  
-Requisitos energéticos en las cadenas de valor alimentarias y agrícolas
+Energy requirements within food and agricultural value chains
 
 **U.S. Energy Information Administration (EIA)**  
-Datos mundiales de energía y electricidad
+Global energy and electricity data
 
 **IPCC**  
-Marco convencional de contabilidad de gases de efecto invernadero y evaluación climática
+Conventional greenhouse-gas accounting and climate assessment framework
         """
     )
 
@@ -1419,12 +1500,12 @@ Marco convencional de contabilidad de gases de efecto invernadero y evaluación 
         """
 **VER FUENTES ORIGINALES**
 
-[FAO / FAOSTAT — Datos mundiales de alimentación y agricultura](https://www.fao.org/faostat/)
+[FAO / FAOSTAT — Global Food & Agriculture Data](https://www.fao.org/faostat/)
 
-[Energypedia — Energía en las cadenas de valor alimentarias y agrícolas](https://energypedia.info/wiki/Energy_within_Food_and_Agricultural_Value_Chains)
+[Energypedia — Energy within Food and Agricultural Value Chains](https://energypedia.info/wiki/Energy_within_Food_and_Agricultural_Value_Chains)
 
-[U.S. Energy Information Administration (EIA) — Datos de electricidad](https://www.eia.gov/electricity/data.php)
+[U.S. Energy Information Administration (EIA) — Electricity Data](https://www.eia.gov/electricity/data.php)
 
-[Gatti et al. (2021), Nature — La Amazonia como fuente de carbono vinculada a la deforestación y el cambio climático](https://www.nature.com/articles/s41586-021-03629-6)
+[Gatti et al. (2021), Nature — Amazonia as a carbon source linked to deforestation and climate change](https://www.nature.com/articles/s41586-021-03629-6)
         """
     )
